@@ -121,7 +121,8 @@ old_rownames <- c('Sample Size', 'Age (yr) ','Male, N(%)','White, N(%)','Race/Et
                   'FVC (L)','Scanner Model','Discovery','iCT128','LightSpeed',
                   'Optima','Sensation','SOM Def','SOM Def AS','SOM Def Flash')
 wt1 <- dat %>%
-  dplyr::select(FVCordered_rskc,AGE_YR,GENDER,racewhite,raceethnic,PEHGHT,BMI, SCADDING,BDFVC, SCMODEL) %>%
+  dplyr::select(FVCordered_rskc,AGE_YR,GENDER,racewhite,raceethnic,PEHGHT,BMI, SCADDING,BDFVC, 
+                PHENGRP, YrsSinceDX, SCMODEL) %>%
   tbl_summary(by = FVCordered_rskc,
               label = list(
                 AGE_YR ~ "Age (yr)",
@@ -132,6 +133,8 @@ wt1 <- dat %>%
                 BMI ~ "BMI (kg/m^2)",
                 SCADDING ~ "Scadding",
                 BDFVC ~ "FVC (L)",
+                PHENGRP ~ "Enrollment Phenotype",
+                YrsSinceDX ~ "Years Since DX",
                 SCMODEL ~ "Scanner Model"
               ),
               missing = "no",
